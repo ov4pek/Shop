@@ -1,0 +1,19 @@
+.basket {
+    min-height: 100pt;
+    margin: 30pt 10pt 5pt 20pt;
+}
+.add_container{
+    min-width: 150pt;
+    font-weight: normal;
+    min-height: 15pt;
+    margin: 5pt 5pt;
+}
+#desription{
+    min-height: 50pt;
+    min-width: 400pt;
+}
+#add_btn{
+    background: #3366cc;
+    padding: 8pt 18pt;
+    font-size: larger;
+}
