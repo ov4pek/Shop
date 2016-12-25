@@ -1,7 +1,7 @@
 package ru.kpfu.entites;
 
 /**
- * Created by Admin on 28.09.2016.
+ * Created by danil on 10.11.2016.
  */
 public class User {
     private String login;

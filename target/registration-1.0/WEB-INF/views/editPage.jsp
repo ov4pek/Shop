@@ -40,10 +40,6 @@
                         <option>shoes</option>
                     </select>
                 </div>
-                <%--<div class="add_container">--%>
-                    <%--<img class="img_good" src="<c:url value="${img_good}"/>" alt=""/>--%>
-
-                <%--</div>--%>
                 <div class="add_container">
                     <input type="file" accept="image/*" name="image">
                 </div>

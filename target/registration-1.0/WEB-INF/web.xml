@@ -13,10 +13,6 @@
         <servlet-class>ru.kpfu.servlets.RegistrationServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>succesfull</servlet-name>
-        <servlet-class>ru.kpfu.servlets.API.AutentificationServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>input</servlet-name>
         <servlet-class>ru.kpfu.servlets.InputServlet</servlet-class>
     </servlet>
@@ -78,11 +74,6 @@
     <servlet-mapping>
         <servlet-name>registrationServlet</servlet-name>
         <url-pattern>/registration</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>succesfull</servlet-name>
-        <url-pattern>/autentification</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

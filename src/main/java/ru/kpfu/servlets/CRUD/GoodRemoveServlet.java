@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * Created by Admin on 23.10.2016.
+ * Created by danil on 18.11.2016.
  */
 public class GoodRemoveServlet extends HttpServlet {
     UserHandler uh = new UserHandler();

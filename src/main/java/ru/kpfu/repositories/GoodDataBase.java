@@ -1,5 +1,6 @@
 package ru.kpfu.repositories;
 
+import org.postgresql.util.PSQLException;
 import ru.kpfu.entites.CatalogGood;
 import ru.kpfu.entites.Comment;
 import ru.kpfu.entites.Good;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Admin on 23.10.2016.
+ * Created by danil on 20.11.2016.
  */
 public class GoodDataBase {
     private static Connection conn;
@@ -102,10 +103,11 @@ public class GoodDataBase {
     public static void removeAllGoods(HttpServletRequest req) throws SQLException {
 
         String login = req.getSession().getAttribute("inputLogin").toString();
+        conn = DBWrapper.getConection();
         conn.createStatement().executeQuery("DELETE FROM goods_list WHERE user_login='" + login + "'");
     }
 
-    public static void removeGood(int id) throws SQLException {
+    public static void removeGood(int id) throws SQLException,PSQLException {
         conn = DBWrapper.getConection();
         conn.createStatement().executeQuery("DELETE FROM goods_list WHERE good_list_id='" + id + "'");
     }

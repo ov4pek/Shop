@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * Created by danil on 18.11.2016.
+ * Created by danil on 14.11.2016.
  */
 public class UserHandler {
     private UserDataBase db = new UserDataBase();
@@ -27,6 +27,7 @@ public class UserHandler {
 
 
     public boolean checkError(HttpServletRequest req) throws IOException, SQLException {
+
         check = false;
         String[] data = new String[8];
         name = req.getParameter("fullname");
@@ -114,7 +115,9 @@ public class UserHandler {
     }
 
     public boolean checkSession(HttpServletRequest req) throws IOException {
-        if (req.getSession().getAttribute("inputLogin") != null) return true;
+        if (req.getSession().getAttribute("inputLogin") != null) {
+            req.setAttribute("session", 1);
+            return true;}
         else return false;
     }
 

@@ -15,8 +15,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by Admin on 26.10.2016.
+/**danil
+ * Created by danil on 23.11.2016.
  */
 public class GoodInfoServlet extends HttpServlet {
     UserHandler handler = new UserHandler();
@@ -66,11 +66,18 @@ public class GoodInfoServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-            if(req.getParameter("edit")!=null){
 
-            }
             if(req.getParameter("remove")!=null){
+                int catalogId = Integer.valueOf(req.getParameter("id"));
 
+                try {
+                    CatalogDataBase.DeleteFromCatalog(catalogId);
+                    resp.sendRedirect("/main");
+
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         } else resp.sendRedirect("/input");
     }

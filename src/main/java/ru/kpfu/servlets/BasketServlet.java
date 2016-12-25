@@ -2,7 +2,6 @@ package ru.kpfu.servlets;
 
 import ru.kpfu.models.UserHandler;
 import ru.kpfu.repositories.GoodDataBase;
-import ru.kpfu.repositories.UserDataBase;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * Created by Admin on 18.10.2016.
+ * Created by danil on 18.11.2016.
  */
 public class BasketServlet extends HttpServlet {
     UserHandler uh = new UserHandler();
@@ -29,15 +28,18 @@ public class BasketServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if(req.getParameter("deleteAll")!=null){
+//        if(req.getParameter("deleteAll")!=null){
             try {
                 GoodDataBase.removeAllGoods(req);
                 req.setAttribute("goods", GoodDataBase.getAllGoods(req));
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            resp.sendRedirect("/basket");
-        }
+        resp.setContentType("text/xml");
+        resp.getWriter().println("<h3>No goods to display</h3>");
+//            resp.sendRedirect("/basket");
+//        }
 
     }
 }

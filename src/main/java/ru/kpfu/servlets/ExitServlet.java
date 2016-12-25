@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Admin on 27.10.2016.
+ * Created by danil on 20.11.2016.
  */
 public class ExitServlet extends HttpServlet {
     @Override

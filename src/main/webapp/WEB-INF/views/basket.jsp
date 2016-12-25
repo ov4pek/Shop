@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Admin
-  Date: 18.10.2016
+  User: danil
+  Date: 18.11.2016
   Time: 21:04
   To change this template use File | Settings | File Templates.
 --%>
@@ -18,7 +18,7 @@
 <jsp:include page="base.jsp"/>
 <div class="window">
     <div class="container">
-        <div class="basket">
+        <div class="basket" id="basket">
             <c:choose>
                 <c:when test="${fn:length(goods) gt 0}">
                     <c:forEach items="${goods}" var="good">
@@ -67,9 +67,9 @@
             </form>
         </div>
         <div class="link">
-            <form method="post">
-                <input class="btn_delete" type="submit" name="deleteAll" value="Удалить все">
-            </form>
+            <%--<form method="post">--%>
+                <input class="btn_delete" type="submit" onclick="removeFromBucket()" name="deleteAll" value="Удалить все">
+            <%--</form>--%>
         </div>
     </div>
     <div>
@@ -78,5 +78,8 @@
     <div class="banner-bottom"></div>
 
 </div>
+<script src="webjars/jquery/1.9.1/jquery.js"></script>
+<script src="webjars/jquery-validation/1.15.1/jquery.validate.js"></script>
+<script src="<c:url value="/js/AjaxBasket.js"/>"></script>
 </body>
 </html>

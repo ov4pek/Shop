@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Admin on 30.09.2016.
+ * Created by danil on 10.11.2016.
  */
 public class InputServlet extends HttpServlet {
     UserHandler handler = new UserHandler();
@@ -27,9 +27,9 @@ public class InputServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (handler.checkDataForAutentification(req)) {
             req.setAttribute("session", 1);
-            getServletContext().getRequestDispatcher("/WEB-INF/views/mainPage.jsp").forward(req, resp);
+//            getServletContext().getRequestDispatcher("/WEB-INF/views/mainPage.jsp").forward(req, resp);
 
-//            resp.sendRedirect("/main");
+            resp.sendRedirect("/main");
         } else {
             getServletContext().getRequestDispatcher("/WEB-INF/views/input.jsp").forward(req, resp);
         }

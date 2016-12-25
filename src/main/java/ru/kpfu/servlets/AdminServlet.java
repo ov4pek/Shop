@@ -5,11 +5,9 @@ import ru.kpfu.models.UserHandler;
 import ru.kpfu.repositories.CatalogDataBase;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -39,6 +37,7 @@ public class AdminServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(uh.checkSession(req)) {
+            req.setAttribute("session", 1);
             if (req.getSession().getAttribute("inputLogin").equals("admin@gmail.com")) {
 
                 getServletContext().getRequestDispatcher("/WEB-INF/views/adminPage.jsp").forward(req, resp);
@@ -84,19 +83,26 @@ public class AdminServlet extends HttpServlet{
             return;
         }
 
-        CatalogGood good =new CatalogGood(
-                name,
-                Integer.valueOf(price),
-                description,
-                fileName,
-                type
-        );
 
         try {
-            CatalogDataBase.AddGoodToCatalog(good);
-            resp.sendRedirect("/admin");
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+            CatalogGood good = new CatalogGood(
+                    name,
+                    Integer.valueOf(price),
+                    description,
+                    fileName,
+                    type
+            );
+
+            try {
+                CatalogDataBase.AddGoodToCatalog(good);
+                resp.sendRedirect("/admin");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }catch (NumberFormatException e){
+            req.setAttribute("errPrice","Введите корректную цену");
+            getServletContext().getRequestDispatcher("/WEB-INF/views/adminPage.jsp").forward(req, resp);
         }
     }
 

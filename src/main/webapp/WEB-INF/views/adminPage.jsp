@@ -24,11 +24,10 @@
                     <input name="name" type='text' placeholder="Name">
                 </div>
                 <div class="add_container">
-                    <input name="price" type='text' placeholder="Price">
+                    <input name="price" type='text' placeholder="Price"> ${errPrice}
                 </div>
                 <div class="add_container">
                     <textarea name='desription' id="desription" placeholder="desription"></textarea>
-                    <%--<input name="desription" id="desription" type='text' placeholder="Desription">--%>
                 </div>
                 <div class="add_container">
                     <select name="type" required>

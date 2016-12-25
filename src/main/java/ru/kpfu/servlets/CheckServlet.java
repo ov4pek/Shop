@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
- * Created by Admin on 27.10.2016.
+ * Created by danil on 23.11.2016.
  */
 public class CheckServlet extends HttpServlet {
     UserHandler uh = new UserHandler();

@@ -48,7 +48,7 @@
                         </form>
                     </div>
                     <div class="add_good">
-                        <form action="/catalog/remove?id=${catalogId}" method="post">
+                        <form action="?id=${catalogId}" method="post">
                             <input type="text" name="id" hidden value=${catalogId} >
                             <input type="submit" class="btn_add" name="remove" value="Remove">
                         </form>

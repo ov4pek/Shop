@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Created by Admin on 11.10.2016.
+ * Created by danil on 14.11.2016.
  */
 public class DBWrapper {
     private final static String DRIVER = "org.postgresql.Driver";

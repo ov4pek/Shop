@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Admin on 27.10.2016.
+ * Created by danil on 14.11.2016.
  */
 public class CatalogDataBase {
     private static Connection conn;
@@ -105,6 +105,17 @@ public class CatalogDataBase {
         st.setString(3,good.getDescription());
         st.setString(4,good.getType());
         st.execute();
+    }
+    public static void DeleteFromCatalog(int catalogId) throws SQLException {
+        conn = DBWrapper.getConection();
+        PreparedStatement st = conn.prepareStatement(
+                "DELETE FROM comments WHERE catalog_good_id="+catalogId
+        );
+        st.execute();
+        PreparedStatement st1 = conn.prepareStatement(
+                "DELETE FROM catalog WHERE catalog_good_id="+catalogId
+        );
+        st1.execute();
     }
 
 

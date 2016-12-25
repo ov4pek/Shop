@@ -33,6 +33,7 @@ public class EditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(uh.checkSession(req)) {
+            req.setAttribute("session", 1);
             if (req.getParameter("edit") != null) {
                 CatalogGood catalogGood = null;
                  catalogId = Integer.valueOf(req.getParameter("id"));

@@ -1,7 +1,7 @@
 package ru.kpfu.entites;
 
 /**
- * Created by Admin on 18.10.2016.
+ * Created by danil on 12.11.2016.
  */
 public class Good {
     private int id;
